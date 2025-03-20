@@ -9,6 +9,10 @@ First, create Hugo site **without a theme** (keeping things simple):
 ```bash
 hugo new site . --force
 ```
+
+TODO: Add a theme to the site and copy content to the new site.
+
+
 ## 2. Set Up Bootstrap & SCSS
 
 Install Bootstrap and Sass via **npm** instead of using a CDN, to allow scss customization.
