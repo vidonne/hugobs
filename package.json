@@ -1,0 +1,22 @@
+{
+  "name": "hugobs",
+  "version": "1.0.0",
+  "description": "Simple Hugo Site with Bootstrap and GitLab Pages Deployment",
+  "main": "index.js",
+  "scripts": {
+    "dev": "hugo server -D",
+    "build": "sass assets/scss/main.scss static/css/main.css --no-source-map --style=compressed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@codeberg.org:vidonne/hugobs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "sass": "^1.86.0"
+  }
+}
