@@ -48,11 +48,31 @@ Edit `package.json` to include scripts for development and build:
 1. Create `assets/scss/main.scss` and import Bootstrap with customizations:
 2. Modify `layouts/partials/head/css.html`
 
-  ```html
+```html
   {{ if hugo.IsServer }}
     {{ $style := resources.Get "scss/main.scss" | toCSS }}
     <style>{{ $style.Content | safeCSS }}</style>
   {{ else }}
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
   {{ end }}
-  ```
+```
+
+For local devlopment, run `npm run dev` and `npm run build` to compile CSS before pushing to GitLab.
+
+## 5. GitLab Pages Deployment
+
+Create `.gitlab-ci.yml` in the root of the project:
+
+```yaml
+image: registry.gitlab.com/pages/hugo:latest
+
+pages:
+  script:
+    - hugo --minify  # Only build Hugo, no SCSS compilation needed
+  artifacts:
+    paths:
+      - public/
+  only:
+    - main
+
+```
