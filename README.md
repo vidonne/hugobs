@@ -42,3 +42,17 @@ Edit `package.json` to include scripts for development and build:
 
 - `npm run dev` → Starts Hugo’s live server with dynamic SCSS
 - `npm run build` → Compiles SCSS to CSS before pushing
+
+## 4. Set Up SCSS Handling in Hugo
+
+1. Create `assets/scss/main.scss` and import Bootstrap with customizations:
+2. Modify `layouts/partials/head/css.html`
+
+  ```html
+  {{ if hugo.IsServer }}
+    {{ $style := resources.Get "scss/main.scss" | toCSS }}
+    <style>{{ $style.Content | safeCSS }}</style>
+  {{ else }}
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  {{ end }}
+  ```

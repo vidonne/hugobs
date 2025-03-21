@@ -1,9 +1,6 @@
-{{- with resources.Get "css/main.css" }}
-  {{- if eq hugo.Environment "development" }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
-  {{- else }}
-    {{- with . | minify | fingerprint }}
-      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-    {{- end }}
-  {{- end }}
-{{- end }}
+{{ if hugo.IsServer }}
+  {{ $style := resources.Get "scss/main.scss" | toCSS }}
+  <style>{{ $style.Content | safeCSS }}</style>
+{{ else }}
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+{{ end }}
