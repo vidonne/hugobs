@@ -68,11 +68,10 @@ image: registry.gitlab.com/pages/hugo:latest
 
 pages:
   script:
-    - hugo --minify  # Only build Hugo, no SCSS compilation needed
+    - hugo --minify --baseURL "${CI_PAGES_URL}" # Only build Hugo, no SCSS compilation needed and use CI_PAGES_URL
   artifacts:
     paths:
       - public/
   only:
     - main
-
 ```
