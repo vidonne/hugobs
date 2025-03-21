@@ -4,13 +4,14 @@ Simple Hugo Site with Bootstrap and GitLab Pages Deployment
 
 ## 1. Create the Hugo Site
 
-First, create Hugo site **without a theme** (keeping things simple):
+First, create Hugo site and add a new theme**without a theme** (keeping things simple):
 
 ```bash
 hugo new site . --force
+hugo new theme my-theme
 ```
 
-TODO: Add a theme to the site and copy content to the new site.
+Move theme relevant files to respective directories at the root of the project.
 
 
 ## 2. Set Up Bootstrap & SCSS
