@@ -59,7 +59,18 @@ Edit `package.json` to include scripts for development and build:
 
 For local devlopment, run `npm run dev` and `npm run build` to compile CSS before pushing to GitLab.
 
-## 5. GitLab Pages Deployment
+## 5. JS Handling
+
+- Copy Bootstrap Bundle JS to static/js/: `cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js static/js/`
+- Create static/js/main.js for custom scripts
+- Include JS in the footer layout:
+
+```html
+<script src="{{ "js/bootstrap.bundle.min.js" | relURL }}"></script>
+<script src="{{ "js/main.js" | relURL }}"></script>
+```
+
+## 7. GitLab Pages Deployment
 
 Create `.gitlab-ci.yml` in the root of the project:
 
