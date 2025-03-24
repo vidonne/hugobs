@@ -61,11 +61,25 @@ For local devlopment, run `npm run dev` and `npm run build` to compile CSS befor
 
 ## 5. JS Handling
 
-- Copy Bootstrap Bundle JS to static/js/: `cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js static/js/`
-- Create static/js/main.js for custom scripts
-- Include JS in the footer layout:
+- Copy Bootstrap Bundle JS to `static/js/`: `cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js static/js/`
+- Create `static/js/main.js` for custom scripts
+- Include JS in the footer layout, edit `layouts/partials/footer.html`:
 
 ```html
+<script src="{{ "js/bootstrap.bundle.min.js" | relURL }}"></script>
+<script src="{{ "js/main.js" | relURL }}"></script>
+```
+
+## 6. Copyright
+
+```html
+<footer>
+    <p>
+        &copy; Copyright holder
+        <span id="js-year" aria-hidden="true"></span>
+        <noscript>{{ now.Format "2006" }}</noscript>
+    </p>
+</footer>
 <script src="{{ "js/bootstrap.bundle.min.js" | relURL }}"></script>
 <script src="{{ "js/main.js" | relURL }}"></script>
 ```

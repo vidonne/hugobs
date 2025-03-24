@@ -1,4 +1,10 @@
-<p>Copyright {{ now.Year }}. All rights reserved.</p>
+<footer>
+    <p>
+        &copy; Copyright holder
+        <span id="js-year" aria-hidden="true"></span>
+        <noscript>{{ now.Format "2006" }}</noscript>
+    </p>
+</footer>
 
 <script src="{{ "js/bootstrap.bundle.min.js" | relURL }}"></script>
 <script src="{{ "js/main.js" | relURL }}"></script>
